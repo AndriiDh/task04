@@ -11,8 +11,8 @@ import com.syndicate.deployment.model.ResourceType;
 @LambdaHandler(lambdaName = "sns_handler",
 	roleName = "sns_handler-role"
 )
-@DependsOn(name = "lambda_topic", resourceType = ResourceType.SNS_TOPIC)
 @SnsEventSource(targetTopic = "lambda_topic")
+@DependsOn(name = "lambda_topic", resourceType = ResourceType.SNS_TOPIC)
 public class SnsHandler implements RequestHandler<Object, String> {
 
 	public String handleRequest(Object request, Context context) {
