@@ -13,8 +13,8 @@ import com.syndicate.deployment.model.ResourceType;
         roleName = "sqs_handler-role",
         runtime = DeploymentRuntime.JAVA8
 )
-@DependsOn(name = "async_queue", resourceType = ResourceType.SQS_QUEUE)
 @SqsTriggerEventSource(targetQueue = "async_queue", batchSize = 10)
+@DependsOn(name = "async_queue", resourceType = ResourceType.SQS_QUEUE)        
 public class SqsHandler implements RequestHandler<Object, String> {
 
     public String handleRequest(Object request, Context context) {
